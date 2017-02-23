@@ -21,6 +21,7 @@ It is a Suricata QA tool that allows for a particular github branch/repository r
 - makecheck
 - Suricata output/checks like -T, --build-info, unittests, --dump-config, --list-runmodes, --list-app-layer-protos, --list-keywords=all, --engine-analysis
 - offering multiple switches for a flexible and fast tests
+- it will spin up multiple different OS dockers in parallel to test on
 - after each docker is finished with the tests it will automatically exit and be stopped and removed. (atm there is a hard time limit of 1hr for a run on a docker - todo)
 
 The OSs flavors for the SQARD-S docker testing available are:  
