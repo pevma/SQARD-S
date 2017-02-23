@@ -11,5 +11,5 @@ SEQUENCE_DIR=$( dirname "${PARENT_DIR}" )
 
 if [ ! -f ${SEQUENCE_DIR}/SKIP_MAKECHECK ]; then
     cd /opt/QA/sources/suricata/ && \
-    make check -j2
+    CONCURRENCY_LEVEL=2 make check -j2
 fi
