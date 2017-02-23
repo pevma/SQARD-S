@@ -6,7 +6,8 @@ Requirements
 ============
 
 SQARD-S has been tested on Debian Jessie.
-On the system that you run the SQARD-S you should have:
+On the system that you run the SQARD-S you should have: 
+
 - docker installed
 - the git, wget packages
 
