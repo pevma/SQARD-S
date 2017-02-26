@@ -131,14 +131,25 @@ if [ -f sqard_config ];then
   exit 1;
 fi
 
-if [ ! -d ${STAGING_AREA} ] || [ ! -d ${RESULT_LOGS} ];
+if [ ! ${STAGING_AREA} ];
 then 
-    echo "Please make sure ${STAGING_AREA} and/or ${RESULT_LOGS} exists!"
-    exit 1
+
+    echo "Using the default ${STAGING_AREA} folder location."
+    STAGING_AREA="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )/staging-area"
+    #echo "The stagig area is : ${STAGING_AREA}"
+    
+fi
+
+if [ ! -d ${RESULT_LOGS} ];
+then 
+
+    echo "Creating ${RESULT_LOGS} !"
+    mkdir -p /opt/QA/SQARD-S/
+    
 fi
 
 if [ ! -d ${STAGING_AREA}/sources/rules ];
-then 
+then
     echo "Please make sure ${STAGING_AREA}/sources/rules contains a full ruleset".
     echo "To get one - "
     echo -e "\n /usr/bin/wget -qO - https://rules.emergingthreats.net/open/suricata-git/emerging.rules.tar.gz | tar -x -z -C staging_area_folder_here/sources/ -f -  \n"
