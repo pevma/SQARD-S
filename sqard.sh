@@ -16,6 +16,8 @@ OPTIONS:
    
    -c      Include makecheck (very CPU and time intensive when used with multiple dockers OSes at the same time)
    
+   -d      Download and use a full Suricata ETOpen ruleset. That option should always be used on a first run.
+   
    -e      Exclude dockers (ex: -e latest - will exclude all "latest" SQARD dockers) - no wild cards
    
    -f      Full all inclusive run - NOTE - this will be very CPU intensive. It is recommended to have minimum 4-8 CPUs with 8-16G RAM
@@ -31,6 +33,7 @@ OPTIONS:
    -r      Use repository. Uses "git://phalanx.openinfosecfoundation.org/oisf.git" by default
    
            
+   NOTE: At a first time run always use "-d".
    
    EXAMPLE 1: 
    ./sqard.sh -f 
