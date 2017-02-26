@@ -337,7 +337,7 @@ do
        # print all available info also
        # take all we have in terms of logs as well.
        docker cp ${container_id}:/opt/QA/results/logs/ ${RESULT_LOGS}/${container}
-       docker inspect ${container_id} > ${RESULT_LOGS}/${container}/NON_GRACEFUL_CONTAINER_EXIT
+       docker inspect ${container_id} > ${RESULT_LOGS}/${container}/ERROR_NON_GRACEFUL_CONTAINER_EXIT
        # we still need to stop and remove the container to avoid potential 
        # contamination of the next sqard run
        docker stop sqard-${container}-01
@@ -355,7 +355,7 @@ do
          docker cp ${container_id}:/opt/QA/results/logs/ ${RESULT_LOGS}/${container}
          docker stop sqard-${container}-01
          docker rm sqard-${container}-01
-         touch ${RESULT_LOGS}/${container}/FORCED_CONTAINER_EXIT
+         touch ${RESULT_LOGS}/${container}/ERROR_FORCED_CONTAINER_EXIT
          FAILURE=1
      else
        let COUNTER=$COUNTER+1;
