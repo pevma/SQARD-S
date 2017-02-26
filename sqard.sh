@@ -55,6 +55,16 @@ OPTIONS:
    from github repo - git@github.com:inliniac/suricata.git
    on all Fedora dockers.
    
+   EXAMPLE 4: 
+   ./sqard.sh -j suse -p -n -d -c
+   Build and test
+   Include pfring 
+   Include netmap
+   Download and use full ETOpen ruleset for Suricata.
+   Include make distcheck
+   Use default branch master and git://phalanx.openinfosecfoundation.org/oisf.git repo.
+   on all Suse dockers.
+   
 
    
    
@@ -65,6 +75,7 @@ PFRING=
 NETMAP=
 MAKECHECK=
 JUST_THESE=
+DOWNLOAD_RULESET=
 EXCLUDE_THESE=
 LOCAL_REPOSITORY=
 BRANCH="master" 
@@ -72,7 +83,7 @@ BRANCH="master"
 REPOSITORY="git://phalanx.openinfosecfoundation.org/oisf.git"
 # default if not specified
 
-while getopts “hb:cj:e:r:pf:nl:” OPTION
+while getopts “hb:cj:de:r:pf:nl:” OPTION
 do
      case $OPTION in
          h)
@@ -84,6 +95,9 @@ do
              ;;
          c)
              MAKECHECK="yes"
+             ;;
+         d)
+             DOWNLOAD_RULESET="yes"
              ;;
          e)
              EXCLUDE_THESE=$OPTARG
@@ -134,9 +148,8 @@ fi
 if [ ! ${STAGING_AREA} ];
 then 
 
-    echo "Using the default ${STAGING_AREA} folder location."
     STAGING_AREA="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )/staging-area"
-    #echo "The stagig area is : ${STAGING_AREA}"
+    echo "Using the default ${STAGING_AREA} folder location for staging area."
     
 fi
 
@@ -144,16 +157,31 @@ if [ ! -d ${RESULT_LOGS} ];
 then 
 
     echo "Creating ${RESULT_LOGS} !"
-    mkdir -p /opt/QA/SQARD-S/
+    mkdir -p ${RESULT_LOGS}
     
 fi
 
-if [ ! -d ${STAGING_AREA}/sources/rules ];
+if [ ${DOWNLOAD_RULESET} ];
 then
-    echo "Please make sure ${STAGING_AREA}/sources/rules contains a full ruleset".
-    echo "To get one - "
-    echo -e "\n /usr/bin/wget -qO - https://rules.emergingthreats.net/open/suricata-git/emerging.rules.tar.gz | tar -x -z -C staging_area_folder_here/sources/ -f -  \n"
+
+    #make sure we start clean
+    rm -rf ${STAGING_AREA}/sources/rules/
+    echo "Downloading a full ETOpen Suricata ruleset in ${STAGING_AREA}/sources/rules"
+    /usr/bin/wget -qO - https://rules.emergingthreats.net/open/suricata-git/emerging.rules.tar.gz | tar -x -z -C ${STAGING_AREA}/sources/ -f - 
+    
+fi
+
+if [ -d ${STAGING_AREA}/sources/rules ];
+then
+
+    echo "Using ${STAGING_AREA}/sources/rules for a full ruleset location"
+    
+else
+    
+    echo "${STAGING_AREA}/sources/rules is not present"
+    echo "Please use/add the \"-d\" option to your sqard.sh line to download a full ruleset "
     exit 1
+    
 fi
 
 # add in all the dockers
