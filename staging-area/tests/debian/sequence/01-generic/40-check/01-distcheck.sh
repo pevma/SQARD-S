@@ -9,7 +9,7 @@ SELF_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 PARENT_DIR=$( dirname "${SELF_DIR}" )
 SEQUENCE_DIR=$( dirname "${PARENT_DIR}" )
 
-if [ ! -f ${SEQUENCE_DIR}/SKIP_MAKECHECK ]; then
+if [ ! -f ${SEQUENCE_DIR}/SKIP_MAKEDISTCHECK ]; then
     cd /opt/QA/sources/suricata/ && \
-    CONCURRENCY_LEVEL=2 make check -j2
+    CONCURRENCY_LEVEL=2 make distcheck -j2
 fi

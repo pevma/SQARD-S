@@ -14,7 +14,7 @@ OPTIONS:
    
    -b      Use branch (must be used with repo -r). Uses "master" by default
    
-   -c      Include makecheck (very CPU and time intensive when used with multiple dockers OSes at the same time)
+   -c      Include make distcheck (very CPU and time intensive when used with multiple dockers OSes at the same time)
    
    -d      Download and use a full Suricata ETOpen ruleset. That option should always be used on a first run.
    
@@ -47,7 +47,7 @@ OPTIONS:
    Exclude any container that has "stable" in its tag - aka test just debian testing and debian unstable
    Include pfring 
    Include netmap
-   Do use makecheck
+   Do use make distcheck
    Use local repository located in /path/to/my/local/suricata/repository/
    
    EXAMPLE 3: 
@@ -76,7 +76,7 @@ EOF
 
 PFRING=
 NETMAP=
-MAKECHECK=
+MAKE_DISTCHECK=
 JUST_THESE=
 DOWNLOAD_RULESET=
 EXCLUDE_THESE=
@@ -97,7 +97,7 @@ do
              BRANCH=$OPTARG
              ;;
          c)
-             MAKECHECK="yes"
+             MAKE_DISTCHECK="yes"
              ;;
          d)
              DOWNLOAD_RULESET="yes"
@@ -130,7 +130,7 @@ do
              REPOSITORY=$OPTARG
              ;;
          f)
-             MAKECHECK="yes"
+             MAKE_DISTCHECK="yes"
              NETMAP="yes"
              PFRING="yes"
              ;;
@@ -253,12 +253,12 @@ do
    
    container_id=$(docker ps -aqf "name=sqard-${container}-01")
    
-   # check if MAKECHECK is needed to be included in the run
-   if [ ${MAKECHECK} ]; 
+   # check if MAKE_DISTCHECK is needed to be included in the run
+   if [ ${MAKE_DISTCHECK} ]; 
    then
-       rm -rf ${STAGING_AREA}/tests/${staging_os}/sequence/SKIP_MAKECHECK
+       rm -rf ${STAGING_AREA}/tests/${staging_os}/sequence/SKIP_MAKE_DISTCHECK
    else
-       touch ${STAGING_AREA}/tests/${staging_os}/sequence/SKIP_MAKECHECK
+       touch ${STAGING_AREA}/tests/${staging_os}/sequence/SKIP_MAKE_DISTCHECK
    fi
    
    # check if just pfring is needed to be included in the run
