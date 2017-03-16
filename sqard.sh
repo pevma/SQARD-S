@@ -20,7 +20,7 @@ OPTIONS:
    
    -e      Exclude dockers (ex: -e latest - will exclude all "latest" SQARD dockers) - no wild cards
    
-   -f      Full all inclusive run - NOTE - this will be very CPU intensive. It is recommended to have minimum 4-8 CPUs with 8-16G RAM
+   -f      Full all inclusive run - NOTE - this will be very CPU intensive. It is recommended to have minimum 8 CPUs with 16G RAM
    
    -j      Run just a specific SQARD docker(s)
    
@@ -37,8 +37,11 @@ OPTIONS:
    
    EXAMPLE 1: 
    ./sqard.sh -f 
+   
    The example above will do a full all test inclusive run. 
-   Warning: This could take a while and be very resource intensive!
+   WARNING: 
+   This could take a while and be very resource intensive!
+   It is recommended to have minimum 8 CPUs with 16G RAM!
    
    EXAMPLE 2: 
    ./sqard.sh -j debian -e stable -p -n -c -l /path/to/my/local/suricata/repository/
@@ -60,6 +63,7 @@ OPTIONS:
    
    EXAMPLE 4: 
    ./sqard.sh -j suse -p -n -d -c
+   
    Build and test
    Include pfring 
    Include netmap

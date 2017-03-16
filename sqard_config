@@ -1,9 +1,9 @@
 #STAGING_AREA='/path/to/SQARD-S/staging-area/'
-#Unless otherwise specified and created (example above) - by default it will 
-#be from the current sqard.sh folder.
+# Unless otherwise specified and created (example above) - by default it will 
+# be from the current sqard.sh folder.
 STAGING_AREA=''
 
-#Will be auto created if not existent 
+# Will be auto created if not existent 
 RESULT_LOGS='/opt/QA/SQARD-S/'
 
 # Docker OSes are pulled form here -
