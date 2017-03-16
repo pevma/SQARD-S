@@ -13,4 +13,5 @@ make install-conf && ldconfig
 if [ -d /tmp/sqard/PF_RING ];
 then 
     ldconfig /usr/local/lib 
+    ldconfig /usr/local/pfring/lib/
 fi

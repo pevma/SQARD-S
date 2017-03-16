@@ -15,7 +15,7 @@ if [ ! -f ${SEQUENCE_DIR}/SKIP_PFRING_NETMAP ]; then
     rm -rf /tmp/sqard/PF_RING
     git clone --depth 1 https://github.com/ntop/PF_RING.git /tmp/sqard/PF_RING
     cd /tmp/sqard/PF_RING/userland/lib && ./configure --prefix=/usr/local/pfring && make && make install
-    ldconfig /usr/local/lib
+    ldconfig /usr/local/lib && ldconfig /usr/local/pfring/lib/
     cp /tmp/sqard/PF_RING/kernel/linux/pf_ring.h  /usr/include/linux/
     
     #netmap
