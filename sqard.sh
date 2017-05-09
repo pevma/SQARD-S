@@ -80,7 +80,7 @@ EOF
 
 PFRING=
 NETMAP=
-MAKE_DISTCHECK=
+MAKEDISTCHECK=
 JUST_THESE=
 DOWNLOAD_RULESET=
 EXCLUDE_THESE=
@@ -101,7 +101,7 @@ do
              BRANCH=$OPTARG
              ;;
          c)
-             MAKE_DISTCHECK="yes"
+             MAKEDISTCHECK="yes"
              ;;
          d)
              DOWNLOAD_RULESET="yes"
@@ -134,7 +134,7 @@ do
              REPOSITORY=$OPTARG
              ;;
          f)
-             MAKE_DISTCHECK="yes"
+             MAKEDISTCHECK="yes"
              NETMAP="yes"
              PFRING="yes"
              ;;
@@ -263,8 +263,8 @@ do
    
    container_id=$(docker ps -aqf "name=sqard-${container}-01")
    
-   # check if MAKE_DISTCHECK is needed to be included in the run
-   if [ ${MAKE_DISTCHECK} ]; 
+   # check if MAKEDISTCHECK is needed to be included in the run
+   if [ ${MAKEDISTCHECK} ]; 
    then
        rm -rf ${STAGING_AREA}/tests/${staging_os}/sequence/SKIP_MAKEDISTCHECK
    else
