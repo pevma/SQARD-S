@@ -47,6 +47,14 @@ The script will return fail upon a single failure during the whole run or succes
 Examples of usage
 =================
 
+Get the source ::
+
+ git clone git@github.com:pevma/SQARD-S.git
+
+Rename the config file and adjust accordingly the folder locations if you wish ::
+
+ cp sample.sqard_config sqard_config
+
 To see examples of usage: 
 
 - ./sqard.sh -h
