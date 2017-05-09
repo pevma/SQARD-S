@@ -158,6 +158,10 @@ then
     STAGING_AREA="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )/staging-area"
     echo "Using the default ${STAGING_AREA} folder location for staging area."
     
+else
+    
+    mkdir -p "${STAGING_AREA}/sources"
+    echo "Using ${STAGING_AREA} folder location for staging area."
 fi
 
 if [ ! -d ${RESULT_LOGS} ];
