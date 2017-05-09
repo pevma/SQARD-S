@@ -161,6 +161,8 @@ then
 else
     
     mkdir -p "${STAGING_AREA}/sources"
+    STAGING_TESTS="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )/staging-area/tests"
+    yes | cp -rf ${STAGING_TESTS} ${STAGING_AREA}
     echo "Using ${STAGING_AREA} folder location for staging area."
 fi
 
