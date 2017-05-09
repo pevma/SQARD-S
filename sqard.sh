@@ -266,9 +266,9 @@ do
    # check if MAKE_DISTCHECK is needed to be included in the run
    if [ ${MAKE_DISTCHECK} ]; 
    then
-       rm -rf ${STAGING_AREA}/tests/${staging_os}/sequence/SKIP_MAKE_DISTCHECK
+       rm -rf ${STAGING_AREA}/tests/${staging_os}/sequence/SKIP_MAKEDISTCHECK
    else
-       touch ${STAGING_AREA}/tests/${staging_os}/sequence/SKIP_MAKE_DISTCHECK
+       touch ${STAGING_AREA}/tests/${staging_os}/sequence/SKIP_MAKEDISTCHECK
    fi
    
    # check if just pfring is needed to be included in the run
