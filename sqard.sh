@@ -346,6 +346,7 @@ do
        # else container exited with some err
        # print all available info also
        # take all we have in terms of logs as well.
+       docker cp ${container_id}:/opt/QA/sources/suricata/config.log ${RESULT_LOGS}/${container}
        docker cp ${container_id}:/opt/QA/results/logs/ ${RESULT_LOGS}/${container}
        docker inspect ${container_id} > ${RESULT_LOGS}/${container}/ERROR_NON_GRACEFUL_CONTAINER_EXIT
        # we still need to stop and remove the container to avoid potential 
