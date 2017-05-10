@@ -90,7 +90,7 @@ BRANCH="master"
 REPOSITORY="git://phalanx.openinfosecfoundation.org/oisf.git"
 # default if not specified
 
-while getopts “hb:cj:de:r:pf:nl:” OPTION
+while getopts “hb:cj:de:r:pfnl:” OPTION
 do
      case $OPTION in
          h)
