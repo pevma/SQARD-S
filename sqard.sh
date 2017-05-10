@@ -260,7 +260,9 @@ do
    
    # start the docker container build
    docker pull pevma/sqard:${container}
-   docker create --name sqard-${container}-01 --entrypoint=/opt/QA/${staging_os}/entrypoint/launch-sequence.sh -ti pevma/sqard:${container} 
+   docker create --cap-add SYS_PTRACE --name sqard-${container}-01 \
+   --entrypoint=/opt/QA/${staging_os}/entrypoint/launch-sequence.sh \
+   -ti pevma/sqard:${container} 
    
    container_id=$(docker ps -aqf "name=sqard-${container}-01")
    
