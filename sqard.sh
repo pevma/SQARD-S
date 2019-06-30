@@ -30,7 +30,7 @@ OPTIONS:
    
    -p      Include pf_ring
    
-   -r      Use repository. Uses "git://phalanx.openinfosecfoundation.org/oisf.git" by default
+   -r      Use repository. Uses ""https://github.com/OISF/suricata.git by default
    
            
    NOTE: At a first time run always use "-d".
@@ -69,7 +69,7 @@ OPTIONS:
    Include netmap
    Download and use full ETOpen ruleset for Suricata.
    Include make distcheck
-   Use default branch master and git://phalanx.openinfosecfoundation.org/oisf.git repo.
+   Use default branch master and https://github.com/OISF/suricata.git repo.
    on all Suse dockers.
    
 
@@ -87,7 +87,7 @@ EXCLUDE_THESE=
 LOCAL_REPOSITORY=
 BRANCH="master" 
 # default if not specified
-REPOSITORY="git://phalanx.openinfosecfoundation.org/oisf.git"
+REPOSITORY="https://github.com/OISF/suricata.git"
 # default if not specified
 
 while getopts “hb:cj:de:r:pfnl:” OPTION
