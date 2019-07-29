@@ -6,6 +6,6 @@ set -o history
 
 cd /opt/QA/sources/suricata/ && \
 LSAN_OPTIONS=suppressions=qa/lsan.suppress ASAN_OPTIONS=detect_leaks=0 \
-/usr/bin/suricata --engine-analysis
+/usr/bin/suricata --engine-analysis -l /var/log/suricata/
 
 cp /var/log/suricata/*perf.log /opt/QA/results/logs/
