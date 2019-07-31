@@ -10,7 +10,7 @@ RESULT_LOGS='/opt/QA/SQARD-S/'
 # https://hub.docker.com/r/pevma/sqard/tags/
 
 OS_DEBIAN='debian-unstable debian-latest debian-testing'
-OS_UBUNTU='ubuntu-latest ubuntu-devel ubuntu-trusty ubuntu-rolling'
+OS_UBUNTU='ubuntu-latest ubuntu-devel ubuntu-xenial ubuntu-rolling'
 OS_FEDORA='fedora-latest fedora-rawhide'
 OS_OPENSUSE='opensuse-latest opensuse-tumbleweed'
 OS_CENTOS='centos-6 centos-latest'
