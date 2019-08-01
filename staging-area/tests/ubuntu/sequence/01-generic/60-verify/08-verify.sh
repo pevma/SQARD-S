@@ -7,4 +7,4 @@ set -o history
 cd /opt/QA/sources/suricata/ && \
 /usr/bin/suricata --engine-analysis -l /var/log/suricata/
 
-cp /var/log/suricata/*perf.log /opt/QA/results/logs/
+cp /var/log/suricata/*.{txt,json} /opt/QA/results/logs/
