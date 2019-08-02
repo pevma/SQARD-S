@@ -60,8 +60,6 @@ To see examples of usage:
 - ./sqard.sh -h
 
 
-*NOTE:* This script is BETA version. Feedback is welcome.
-
 TODO: 
 
 - Add in vagrant for BSD tests. 
