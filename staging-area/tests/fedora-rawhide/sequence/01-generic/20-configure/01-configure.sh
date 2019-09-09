@@ -6,4 +6,4 @@ set -o history
 
 cd /opt/QA/sources/suricata/ && \
 ./configure --prefix=/usr --sysconfdir=/etc --localstatedir=/var \
-CFLAGS="-march=native -O3" --enable-gccprotect --enable-pie
+CFLAGS="-march=native -O3" --enable-gccprotect --enable-rust-strict --enable-pie
